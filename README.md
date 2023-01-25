@@ -40,10 +40,66 @@ Running container from an image i've just created and mapping port 8080 to 80 as
 
   - Report save in GitHub repository
 ### Task 2
-  - Prepare private and public network
-  - Prepare one dockerfile based on ubuntu with the ping command
-  - One container must have access to the private and public networks the second container must be in the private network
-  - Criterias:
-    - Run a container that has access to the public network and ping some resources (example: google.com )
-    - The second container ping the first container via a private network
-  - Report save in GitHub repository
+
+Task scheme:
+
+ <img src="https://user-images.githubusercontent.com/109740456/214474457-85297065-246c-47e4-b62e-dacf1266f266.png" width="700">
+
+
+For performing this task i used docker-compose plugin and created simple docker-compose file.
+
+  - __Prepare private and public network__
+  
+ <img src="https://user-images.githubusercontent.com/109740456/214473791-f111e52a-9f09-45cb-a495-dc4fa4277e72.png" width="250">
+
+Docker inspect outputs for networks:
+  - Internal:
+    
+<img src="https://user-images.githubusercontent.com/109740456/214474687-36c6ddda-3dd7-4da6-a645-788ed180a40a.png" width="500">
+
+  - External:
+  
+<img src="https://user-images.githubusercontent.com/109740456/214474838-f74b5e96-4976-41b2-bef3-e29ef130be72.png" width="500">
+
+
+  
+  - __Prepare one dockerfile based on ubuntu with the ping command__
+  
+Dockerfile snapshot:
+
+<img src="https://user-images.githubusercontent.com/109740456/214475436-6a3ac91e-54f2-411d-8174-912909b5e34d.png" width="500">
+
+  - __One container must have access to the private and public networks the second container must be in the private network__
+  
+Docker inspect outputs for container's networks section:
+
+Frontend container:
+
+<img src="https://user-images.githubusercontent.com/109740456/214475969-badf7f9d-78bf-46f7-9e95-524fce3dc66b.png" width="500">
+
+Backend container:
+
+<img src="https://user-images.githubusercontent.com/109740456/214475890-f8680faf-e41a-45ee-bdef-b9b74f5e86f2.png" width="500">
+
+  - __Criterias:__
+    - __Run a container that has access to the public network and ping some resources (example: google.com)__    
+    - __The second container ping the first container via a private network__
+    
+Run execution:
+    
+<img src="https://user-images.githubusercontent.com/109740456/214476243-83591d3d-c7e2-47d6-9bb4-1a06706d9d47.png" width="350">
+
+<img src="https://user-images.githubusercontent.com/109740456/214476512-254f3104-f611-43a6-988c-53ef2f4d3586.png" width="600">
+
+Ping results:
+
+Frontend container:
+
+<img src="https://user-images.githubusercontent.com/109740456/214477101-9f901d29-e81e-4fb2-8987-463a4d272e70.png" width="500">
+
+Backend container:
+
+<img src="https://user-images.githubusercontent.com/109740456/214476865-60ee58f8-203c-4fd3-b9cd-4a399bd38398.png" width="500">
+   
+  - __Report save in GitHub repository__
+  
