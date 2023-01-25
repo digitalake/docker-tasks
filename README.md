@@ -53,6 +53,7 @@ For performing this task i used docker-compose plugin and created simple docker-
  <img src="https://user-images.githubusercontent.com/109740456/214473791-f111e52a-9f09-45cb-a495-dc4fa4277e72.png" width="250">
 
 Docker inspect outputs for networks:
+
 Internal:
     
 <img src="https://user-images.githubusercontent.com/109740456/214474687-36c6ddda-3dd7-4da6-a645-788ed180a40a.png" width="500">
