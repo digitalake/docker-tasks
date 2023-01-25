@@ -1,0 +1,25 @@
+---
+version: "3.6"
+services:
+  front:
+    build: .
+    container_name: ubuntu-front
+    command: "sleep 1000" # to keep the container alive 
+    restart: on-failure # restart policy
+    networks:
+      - backend # access to internal network
+      - frontend # access to external network
+  back:
+    build: .
+    container_name: ubuntu-back
+    command: "sleep 1000" 
+    restart: on-failure 
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
+    internal: true
+  frontend:
+    driver: bridge
+    
