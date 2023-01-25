@@ -14,7 +14,13 @@ The command ADD with URL feature was used + chmod for using by Nginx (rw------- 
 ADD </path/ or URL> </destination/path>
 ```
 
-<img src="https://user-images.githubusercontent.com/109740456/214439867-cc05d025-aaad-4ad9-a794-b1711dcac94c.png" width="700">
+Dockerfile code:
+
+```
+FROM nginx:1.23.3-alpine-slim
+ADD https://raw.githubusercontent.com/digitalake/nginx-templates/main/index.html /usr/share/nginx/html/
+RUN chmod 644 /usr/share/nginx/html/index.html
+```
 
   - __Added your own index.html page with your name and surname to the docker image__
   - __Run the docker container at port 8080__
@@ -49,9 +55,37 @@ Task scheme:
 For performing this task i used docker-compose plugin and created simple docker-compose file.
 
   - __Prepare private and public network__
-  
- <img src="https://user-images.githubusercontent.com/109740456/214473791-f111e52a-9f09-45cb-a495-dc4fa4277e72.png" width="250">
 
+In my compose-file:
+
+Network section:
+
+```
+networks:
+  backend:
+    driver: bridge
+    internal: true
+  frontend:
+    driver: bridge
+```
+
+Attaching networks to front and back containers:
+
+```
+  back:
+    ... 
+    networks:
+      - backend
+```
+
+```
+front:
+    ...
+    networks:
+      - backend 
+      - frontend 
+```
+  
 Docker inspect outputs for networks:
 
 Internal:
@@ -66,9 +100,12 @@ External:
   
   - __Prepare one dockerfile based on ubuntu with the ping command__
   
-Dockerfile snapshot:
+Dockerfile code:
 
-<img src="https://user-images.githubusercontent.com/109740456/214475436-6a3ac91e-54f2-411d-8174-912909b5e34d.png" width="500">
+```
+FROM ubuntu:22.04
+RUN apt update && apt install -y inetutils-ping
+```
 
   - __One container must have access to the private and public networks the second container must be in the private network__
   
