@@ -32,13 +32,13 @@ Running container from an image i've just created and mapping port 8080 to 80 as
 <img src="https://user-images.githubusercontent.com/109740456/214442304-03c0592c-4d78-4bac-b76e-ca191f9a0ca9.png" width="600">
 
 
-  - Open page in Web Browser
+  - __Open page in Web Browser__
 
 <img src="https://user-images.githubusercontent.com/109740456/214442069-5002a8d7-37f0-476a-93d4-c3bfba960465.png" width="700">
 
 
 
-  - Report save in GitHub repository
+  - __Report save in GitHub repository___
 ### Task 2
 
 Task scheme:
@@ -53,11 +53,11 @@ For performing this task i used docker-compose plugin and created simple docker-
  <img src="https://user-images.githubusercontent.com/109740456/214473791-f111e52a-9f09-45cb-a495-dc4fa4277e72.png" width="250">
 
 Docker inspect outputs for networks:
-  - Internal:
+Internal:
     
 <img src="https://user-images.githubusercontent.com/109740456/214474687-36c6ddda-3dd7-4da6-a645-788ed180a40a.png" width="500">
 
-  - External:
+External:
   
 <img src="https://user-images.githubusercontent.com/109740456/214474838-f74b5e96-4976-41b2-bef3-e29ef130be72.png" width="500">
 
